@@ -4,10 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 
 const links = [
-  { label: "Product", href: "#" },
-  { label: "Why Camunda", href: "#" },
-  { label: "Customers", href: "#" },
-  { label: "Resources", href: "#" },
+  { label: "Product", href: "/" },
+  { label: "Why Camunda", href: "/" },
+  { label: "Customers", href: "/" },
+  { label: "Resources", href: "/" },
   { label: "Newsroom", href: "/press" },
   { label: "Events", href: "/events" },
 ];
@@ -19,9 +19,9 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#2A2A2A] bg-[#0A0A0A]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="#" className="text-xl font-bold tracking-tight text-white">
+        <Link href="/" className="text-xl font-bold tracking-tight text-white">
           CAMUNDA
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
@@ -48,7 +48,7 @@ export default function Nav() {
 
         {/* CTA */}
         <a
-          href="#cta"
+          href="/#cta"
           className="hidden rounded-full bg-[#FF6314] px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 md:inline-block"
         >
           Get a demo
@@ -100,7 +100,7 @@ export default function Nav() {
             )
           )}
           <a
-            href="#cta"
+            href="/#cta"
             className="mt-4 inline-block rounded-full bg-[#FF6314] px-5 py-2.5 text-sm font-semibold text-white"
           >
             Get a demo
