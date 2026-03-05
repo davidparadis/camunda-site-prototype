@@ -3,6 +3,7 @@ name: Deploy on Sanity Publish
 on:
   repository_dispatch:
     types: [sanity-publish]
+  workflow_dispatch:
 
 jobs:
   build-deploy:
