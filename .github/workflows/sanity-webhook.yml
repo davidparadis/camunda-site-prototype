@@ -1,8 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy on Sanity Publish
 
 on:
-  push:
-    branches: [main]
+  repository_dispatch:
+    types: [sanity-publish]
 
 jobs:
   build-deploy:

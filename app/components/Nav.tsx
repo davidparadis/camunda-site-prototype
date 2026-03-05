@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
-const links = ["Product", "Why Camunda", "Customers", "Resources"];
+const links = [
+  { label: "Product", href: "#" },
+  { label: "Why Camunda", href: "#" },
+  { label: "Customers", href: "#" },
+  { label: "Resources", href: "#" },
+  { label: "Newsroom", href: "/press" },
+  { label: "Events", href: "/events" },
+];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -17,15 +25,25 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <a
-              key={l}
-              href="#"
-              className="text-sm font-medium text-[#A0A0A0] transition-colors hover:text-white"
-            >
-              {l}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.href.startsWith("/") ? (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="text-sm font-medium text-[#A0A0A0] transition-colors hover:text-white"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.label}
+                href={l.href}
+                className="text-sm font-medium text-[#A0A0A0] transition-colors hover:text-white"
+              >
+                {l.label}
+              </a>
+            )
+          )}
         </div>
 
         {/* CTA */}
@@ -62,15 +80,25 @@ export default function Nav() {
       {/* Mobile menu */}
       {open && (
         <div className="border-t border-[#2A2A2A] px-6 pb-6 pt-4 md:hidden">
-          {links.map((l) => (
-            <a
-              key={l}
-              href="#"
-              className="block py-2 text-sm font-medium text-[#A0A0A0]"
-            >
-              {l}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.href.startsWith("/") ? (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="block py-2 text-sm font-medium text-[#A0A0A0]"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.label}
+                href={l.href}
+                className="block py-2 text-sm font-medium text-[#A0A0A0]"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <a
             href="#cta"
             className="mt-4 inline-block rounded-full bg-[#FF6314] px-5 py-2.5 text-sm font-semibold text-white"
