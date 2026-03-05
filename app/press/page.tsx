@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 interface PressRelease {
   title: string;
@@ -83,17 +85,23 @@ export default function PressPage() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0A0A0A]">
-        <p className="text-[#A0A0A0]">Loading...</p>
-      </div>
+      <>
+        <Nav />
+        <div className="flex min-h-screen items-center justify-center bg-[#0A0A0A]">
+          <p className="text-[#A0A0A0]">Loading...</p>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   // Detail view
   if (selected) {
     return (
-      <div className="min-h-screen bg-[#0A0A0A] pt-24">
-        <article className="mx-auto max-w-3xl px-6 py-16">
+      <>
+        <Nav />
+        <div className="min-h-screen bg-[#0A0A0A] pt-24">
+          <article className="mx-auto max-w-3xl px-6 py-16">
           <button
             onClick={() => {
               setSelected(null);
@@ -144,15 +152,19 @@ export default function PressPage() {
               )}
             </div>
           )}
-        </article>
-      </div>
+          </article>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   // Listing view
   return (
-    <div className="min-h-screen bg-[#0A0A0A] pt-24">
-      <div className="mx-auto max-w-4xl px-6 py-16">
+    <>
+      <Nav />
+      <div className="min-h-screen bg-[#0A0A0A] pt-24">
+        <div className="mx-auto max-w-4xl px-6 py-16">
         <h1 className="text-4xl font-bold text-white md:text-5xl">Newsroom</h1>
         <p className="mt-4 text-lg text-[#A0A0A0]">
           The latest press releases from Camunda.
@@ -204,7 +216,9 @@ export default function PressPage() {
             ))}
           </div>
         )}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

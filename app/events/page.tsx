@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 interface Event {
   title: string;
@@ -72,8 +74,10 @@ export default function EventsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] pt-24">
-      <div className="mx-auto max-w-6xl px-6 py-16">
+    <>
+      <Nav />
+      <div className="min-h-screen bg-[#0A0A0A] pt-24">
+        <div className="mx-auto max-w-6xl px-6 py-16">
         <h1 className="text-4xl font-bold text-white md:text-5xl">Events</h1>
         <p className="mt-4 text-lg text-[#A0A0A0]">
           Meet us at upcoming events around the world.
@@ -179,7 +183,9 @@ export default function EventsPage() {
             ))}
           </div>
         )}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
