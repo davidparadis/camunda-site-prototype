@@ -46,6 +46,12 @@ export default defineType({
       title: "Media Contact Email",
       type: "string",
     }),
+    defineField({
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    }),
   ],
   orderings: [
     {

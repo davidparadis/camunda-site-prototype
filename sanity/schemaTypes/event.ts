@@ -84,6 +84,12 @@ export default defineType({
       type: "image",
       options: { hotspot: true },
     }),
+    defineField({
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    }),
   ],
   orderings: [
     {

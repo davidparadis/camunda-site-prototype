@@ -16,3 +16,13 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-sans);
 }
+
+.font-japanese {
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+.nav-link {
+  white-space: nowrap;
+}
