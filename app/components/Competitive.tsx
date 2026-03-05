@@ -33,7 +33,7 @@ const rows = [
 
 export default function Competitive() {
   return (
-    <section className="border-b border-[#2A2A2A] py-24">
+    <section className="border-b border-[#2A2A2A] bg-[#0A0A0A] py-24">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-center text-4xl font-bold text-white md:text-5xl">
           How we compare

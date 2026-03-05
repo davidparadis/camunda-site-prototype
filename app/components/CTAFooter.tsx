@@ -11,7 +11,7 @@ export default function CTAFooter() {
         </p>
         <a
           href="#"
-          className="mt-8 inline-block rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-[#0A0A0A] transition-opacity hover:opacity-90"
+          className="mt-8 inline-block rounded-full border-2 border-white px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[#0A0A0A]"
         >
           Get a demo
         </a>

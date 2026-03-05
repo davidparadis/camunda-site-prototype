@@ -51,7 +51,7 @@ const cards = [
 
 export default function Differentiators() {
   return (
-    <section id="differentiators" className="border-b border-[#2A2A2A] py-24">
+    <section id="differentiators" className="border-b border-[#2A2A2A] bg-[#111111] py-24">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-center text-4xl font-bold text-white md:text-5xl">
           What makes our agentic orchestration different

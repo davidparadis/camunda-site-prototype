@@ -42,7 +42,7 @@ const analysts = [
 
 export default function Proof() {
   return (
-    <section className="border-b border-[#2A2A2A] py-24">
+    <section className="border-b border-[#2A2A2A] bg-[#111111] py-24">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-center text-4xl font-bold text-white md:text-5xl">
           Proven at scale
@@ -75,17 +75,14 @@ export default function Proof() {
           {analysts.map((a) => (
             <div
               key={a.org}
-              className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] px-8 py-5"
+              className="flex items-center gap-5 rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] px-8 py-5"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#2A2A2A] bg-[#111111]">
-                <span className="text-xs font-bold text-[#A0A0A0]">
-                  {a.org.charAt(0)}
+              <div className="flex items-center justify-center rounded-lg border border-[#2A2A2A] bg-[#111111] px-4 py-3">
+                <span className="text-sm font-semibold tracking-widest text-[#A0A0A0]">
+                  {a.org.toUpperCase()}
                 </span>
               </div>
-              <div>
-                <p className="font-semibold text-white">{a.org}</p>
-                <p className="text-sm text-[#A0A0A0]">{a.recognition}</p>
-              </div>
+              <p className="text-sm text-[#A0A0A0]">{a.recognition}</p>
             </div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 export default function Problem() {
   return (
-    <section className="border-b border-[#2A2A2A] py-24">
+    <section className="border-b border-[#2A2A2A] bg-[#0A0A0A] py-24">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="text-4xl font-bold text-white md:text-5xl">
           Break through the automation ceiling.
