@@ -1,15 +1,7 @@
-import * as deepl from "deepl-node";
+import translate from "google-translate-api-x";
 import { createClient } from "@sanity/client";
 import * as fs from "fs";
 import * as path from "path";
-
-const DEEPL_API_KEY = process.env.DEEPL_API_KEY;
-if (!DEEPL_API_KEY) {
-  console.error("Missing DEEPL_API_KEY environment variable");
-  process.exit(1);
-}
-
-const translator = new deepl.Translator(DEEPL_API_KEY);
 
 const sanityClient = createClient({
   projectId: "mr5heny6",
@@ -19,10 +11,12 @@ const sanityClient = createClient({
   useCdn: false,
 });
 
-const LOCALE_MAP: Record<string, deepl.TargetLanguageCode> = {
-  de: "de",
-  ja: "ja",
-};
+const SUPPORTED_LOCALES = ["de", "ja"];
+
+async function translateText(text: string, targetLocale: string): Promise<string> {
+  const result = await translate(text, { from: "en", to: targetLocale });
+  return result.text;
+}
 
 async function translateUIStrings(targetLocale: string) {
   const enPath = path.join(__dirname, "..", "messages", "en.json");
@@ -35,12 +29,9 @@ async function translateUIStrings(targetLocale: string) {
       strings as Record<string, string>
     )) {
       try {
-        const result = await translator.translateText(
-          value,
-          "en",
-          LOCALE_MAP[targetLocale]
-        );
-        translated[section][key] = result.text;
+        translated[section][key] = await translateText(value, targetLocale);
+        // Small delay to avoid rate limiting
+        await new Promise((r) => setTimeout(r, 100));
       } catch (err) {
         console.warn(`  Skipped ${section}.${key}: ${err}`);
         translated[section][key] = value;
@@ -71,24 +62,16 @@ async function translateSanityContent(targetLocale: string) {
   );
 
   for (const doc of docs) {
-    const translatedTitle = await translator.translateText(
-      doc.title,
-      "en",
-      LOCALE_MAP[targetLocale]
-    );
+    const translatedTitle = await translateText(doc.title, targetLocale);
 
     const translatedSummary =
       doc.summary || doc.description
-        ? await translator.translateText(
-            doc.summary || doc.description,
-            "en",
-            LOCALE_MAP[targetLocale]
-          )
+        ? await translateText(doc.summary || doc.description, targetLocale)
         : null;
 
     const newDoc: any = {
       _type: doc._type,
-      title: translatedTitle.text,
+      title: translatedTitle,
       slug: { _type: "slug", current: `${doc.slug.current}-${targetLocale}` },
       language: targetLocale,
     };
@@ -105,15 +88,10 @@ async function translateSanityContent(targetLocale: string) {
     if (doc.contactEmail) newDoc.contactEmail = doc.contactEmail;
 
     // Set translated text fields
-    if (doc.summary) newDoc.summary = translatedSummary?.text;
-    if (doc.description) newDoc.description = translatedSummary?.text;
+    if (doc.summary) newDoc.summary = translatedSummary;
+    if (doc.description) newDoc.description = translatedSummary;
     if (doc.ctaLabel) {
-      const translatedCta = await translator.translateText(
-        doc.ctaLabel,
-        "en",
-        LOCALE_MAP[targetLocale]
-      );
-      newDoc.ctaLabel = translatedCta.text;
+      newDoc.ctaLabel = await translateText(doc.ctaLabel, targetLocale);
     }
 
     await sanityClient.create(newDoc);
@@ -123,7 +101,7 @@ async function translateSanityContent(targetLocale: string) {
 
 async function main() {
   const targetLocale = process.argv[2]?.replace("--locale=", "");
-  if (!targetLocale || !LOCALE_MAP[targetLocale]) {
+  if (!targetLocale || !SUPPORTED_LOCALES.includes(targetLocale)) {
     console.error("Usage: npm run translate -- --locale=de");
     process.exit(1);
   }

@@ -15,7 +15,7 @@
     "@sanity/document-internationalization": "^5.1.1",
     "@sanity/image-url": "^2.0.3",
     "@sanity/vision": "^5.13.0",
-    "deepl-node": "^1.24.0",
+    "google-translate-api-x": "^10.7.1",
     "next": "^16.1.6",
     "next-intl": "^4.8.3",
     "next-sanity": "^12.1.0",
