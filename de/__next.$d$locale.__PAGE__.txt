@@ -1,0 +1,14 @@
+1:"$Sreact.fragment"
+2:I[54858,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+3:I[33744,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+4:I[8572,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+5:I[52756,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+6:I[63424,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+7:I[91326,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+8:I[19673,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+9:I[90530,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+a:I[28129,["/camunda-site-prototype/_next/static/chunks/106077215c424b2c.js","/camunda-site-prototype/_next/static/chunks/51ddee8f1e24f7fa.js","/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js"],"default"]
+b:I[97367,["/camunda-site-prototype/_next/static/chunks/ff1a16fafef87110.js","/camunda-site-prototype/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+0:{"buildId":"8Gl7PymrcQHjSfosEWLEQ","rsc":["$","$1","c",{"children":[[["$","$L2",null,{}],["$","main",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}]]}],["$","$La",null,{}]],[["$","script","script-0",{"src":"/camunda-site-prototype/_next/static/chunks/9bb6780d9eecf683.js","async":true}]],["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]]}],"loading":null,"isPartial":false}
+d:null
